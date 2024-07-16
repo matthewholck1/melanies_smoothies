@@ -1,6 +1,5 @@
 # Import python packages
 import streamlit as st # for streamlit func
-from snowflake.snowpark.context import get_active_session
 # for snowpark column fucntion "col"
 from snowflake.snowpark.functions import col
 
@@ -18,7 +17,8 @@ st.write('The name on your Smoothie will be:', name_on_order)
 
 # selects the table imported
 # selects the fruit name column specifically
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
 
