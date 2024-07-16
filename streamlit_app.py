@@ -3,6 +3,7 @@ import streamlit as st # for streamlit func
 # for snowpark column fucntion "col"
 from snowflake.snowpark.functions import col
 import requests
+import pandas as pd
 
 # Write directly to the app
 st.title(":banana: Customize Your Smoothie! :strawberry:")
